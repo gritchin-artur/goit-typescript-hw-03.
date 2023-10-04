@@ -26,7 +26,7 @@ abstract class House {
   }
 
   public comeIn(tenant: Person) {
-    if (this.door && this.key === tenant.getKey()) {
+    if (this.door) {
       this.tenants.push(tenant);
     }
   }
@@ -34,7 +34,7 @@ abstract class House {
 
 class MyHouse extends House {
   openDoor(key: Key): void {
-    if (key.getSignature() === this.key.getSignature()) {
+    if (key === this.key) {
       this.door = true;
     }
   }
